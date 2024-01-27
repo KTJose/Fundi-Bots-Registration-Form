@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Responsive Registration Form </title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="id" href="index_3.html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+
+    <body>
+        <div class="container">
+            <div class="title">FundiBots Registration</div>
+            <p>Wellcome to Holiday Camp Registration</p>
+            <p style="color: rgb(255, 55, 0);">Students Details</p>
+            <p>Please Enter The Number Of Students You Want To Registrater</p>
+           <form action="index_3.html" method="get">
+              <div class="user-details" style="display: flex; align-items: center;margin-bottom: 0;">   
+                  <div class="input-box">
+                    <input id="num" type="number" value="1" min="1" max="16">
+                  </div>
+            
+                <div class="button">
+                    <input onclick="createForms()" type="submit" value="Create form(s)">
+                </div>
+              </div>  
+            <div id="container"></div> 
+          </form>
+        </div>
+
+        <script>
+            // Get the form element
+    var form1 = document.getElementById("form1");
+    // Add an event listener for the submit event
+    form1.addEventListener("submit", function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      // Get the number of forms from the input element
+      var num = document.getElementById("num").value;
+      // Create a new window
+      var win = window.open("", "_blank");
+      // Write some HTML to the new window
+      win.document.write("<html><head><title>New Page</title></head><body>");
+      win.document.write("<h1>You Are Ready To Register  " + num + " </h1>");
+      // Loop through the number of forms and create a form element for each one
+      for (var i = 1; i <= num; i++) {
+        win.document.write("<form id='Students'" + i + ">");
+        win.document.write("<h2>Form " + i + "</h2>");
+        // Add some input elements to the form
+        win.document.write("<label for='name" + i + "'>Name:</label>");
+        win.document.write("<input type='text' class='button' id='name" + i + "' name='name" + i + "'><br>");
+        win.document.write("<label for='email" + i + "'>Email:</label>");
+        win.document.write("<input type='email' id='email" + i + "' name='email" + i + "'><br>");
+        win.document.write("<input type='submit' value='Submit'>");
+        win.document.write("</form>");
+      }
+      win.document.write("</body></html>");
+      // Close the document stream
+      win.document.close();
+    });
+          </script>    
+    </body>
+</html>
